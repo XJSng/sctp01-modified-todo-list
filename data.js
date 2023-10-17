@@ -11,4 +11,7 @@ function addToPackingList(packingList, name, clothesType, qty) {
   packingList.push(newItem);
 }
 
-
+addToPackingList(packingList, "shirt", "t-shirt", 2)
+addToPackingList(packingList, "black-shorts", "shorts", 2)
+addToPackingList(packingList, "socks", "socks", 3)
+console.log(packingList)
