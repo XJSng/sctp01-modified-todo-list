@@ -11,7 +11,19 @@ function addToPackingList(packingList, name, clothesType, qty) {
   packingList.push(newItem);
 }
 
-addToPackingList(packingList, "shirt", "t-shirt", 2)
-addToPackingList(packingList, "black-shorts", "shorts", 2)
-addToPackingList(packingList, "socks", "socks", 3)
-console.log(packingList)
+
+function modifyPackingListItem(packingList, id, newName, newClothesType, newQty) {
+  // Create variable for incoming new item
+  let modifyItem = {
+    "id": id,
+    "name": newName,
+    "newClothesType": newClothesType,
+    "newQty": newQty
+  }
+// look for the matching "id"
+const indexToReplace = packingList.findIndex(t => t.id == id)
+}
+if (indexToReplace > -1) {
+  packingList[indexToReplace] = modifyItem
+}
+
