@@ -49,7 +49,7 @@ function deleteListItem(packingList, id) {
 function packingListTotal (packingList) {
   return packingList.length
 }
-/*
+
 // Test Code
 addToPackingList(packingList, "shirt", "t-shirt", 2)
 addToPackingList(packingList, "black-shorts", "shorts", 2)
@@ -57,6 +57,7 @@ addToPackingList(packingList, "socks", "socks", 3)
 addToPackingList(packingList, "adidas-sneakers", "shoes", 2)
 modifyPackingListItem(packingList, packingList[2].id, "shirt", "t-shirt", 1)
 console.log(packingList)
+/*
 deleteListItem(packingList, 123)
 deleteListItem(packingList, packingList[2].id)
 console.log(packingList)
