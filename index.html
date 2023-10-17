@@ -2,29 +2,66 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Personal Packing List</title>
+  <title>Personal Packing List</title>
 </head>
 
 <body>
-    <h1>Personal Packing list</h1>
-<p>Thinking about traveling but don't know what to bring</p>
+  <div class="container mt-5">
+    <h1 class="bg-danger text-white p-3 rounded-top">Personal Packing list</h1>
+    <p class="lead">Traveling soon? Why not use this packing list?</p>
+    <h3>My personal packing list</h3>
+    <div class="list-group bg-light">
+      <div class="row border pt-1 pb-1">
+        <div class="col-10">
+          <label class="list-group-item border-0">
+            <input class="form-check-input me-1" type="checkbox" value="">
+            Fake example item #1</label>
+        </div>
+        <div class="col-1"><button type="button" class="btn btn-primary">Edit</button></div>
+        <div class="col-1"><button type="button" class="btn btn-danger">Delete</button></div>
+      </div>
+      <div class="row border pt-1 pb-1">
+        <div class="col-10">
+          <label class="list-group-item border-0">
+            <input class="form-check-input me-1" type="checkbox" value="">
+            Fake example item #2</label>
+        </div>
+        <div class="col-1"><button type="button" class="btn btn-primary">Edit</button></div>
+        <div class="col-1"><button type="button" class="btn btn-danger">Delete</button></div>
+      </div>
+      
+      
+      
+     
+      <ul>
+        <li class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+          <span class="item-text">Fake example item #1</span>
+          <div>
+            <button class="edit-me btn btn-secondary btn-sm mr-1">Edit</button>
+            <button class="delete-me btn btn-danger btn-sm">Delete</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
+  </div>
 </body>
 
 </html>
