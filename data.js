@@ -29,6 +29,21 @@ function modifyPackingListItem(packingList, id, newName, newClothesType, newQty)
   }
 }
 
+function deleteListItem(packingList, id) {
+  let indexToDelete = null;
+  for (let i = 0; i < packingList.length; i++) {
+        //cycle through each id in packingList array
+    if (packingList[i].id == id){
+    indexToDelete = i;
+    break;
+  }
+  }
+  if (indexToDelete !== null) {
+    packingList.splice(indexToDelete, 1);
+  } else {
+    console.log(`Item not found`);
+  }
+  }
 
 // Test Code
 addToPackingList(packingList, "shirt", "t-shirt", 2)
@@ -36,4 +51,6 @@ addToPackingList(packingList, "black-shorts", "shorts", 2)
 addToPackingList(packingList, "socks", "socks", 3)
 modifyPackingListItem(packingList, packingList[2].id, "shirt", "t-shirt", 1)
 console.log(packingList)
-
+deleteListItem(packingList, 123)
+deleteListItem(packingList, packingList[2].id)
+console.log(packingList)
