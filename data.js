@@ -17,13 +17,23 @@ function modifyPackingListItem(packingList, id, newName, newClothesType, newQty)
   let modifyItem = {
     "id": id,
     "name": newName,
-    "newClothesType": newClothesType,
-    "newQty": newQty
+    "clothesType": newClothesType,
+    "qty": newQty
   }
-// look for the matching "id"
-const indexToReplace = packingList.findIndex(t => t.id == id)
+  // look for the matching "id"
+  const indexToReplace = packingList.findIndex(t => t.id == id)
+  if (indexToReplace > -1) {
+    packingList[indexToReplace] = modifyItem
+  } else {
+    console.log(`Sorry but this does not match any items in the list.`)
+  }
 }
-if (indexToReplace > -1) {
-  packingList[indexToReplace] = modifyItem
-}
+
+
+// Test Code
+addToPackingList(packingList, "shirt", "t-shirt", 2)
+addToPackingList(packingList, "black-shorts", "shorts", 2)
+addToPackingList(packingList, "socks", "socks", 3)
+modifyPackingListItem(packingList, packingList[2].id, "shirt", "t-shirt", 1)
+console.log(packingList)
 
