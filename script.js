@@ -2,24 +2,24 @@ document.addEventListener("DOMContentLoaded", function () {
     function main() {
         let packingList = []
 
-          // add item function
-const addItemButton = document.querySelector("#addItem")
-addItemButton.addEventListener("click", function(){
-    const itemNameInput = document.querySelector('#itemName')
-    const itemName = itemNameInput.value
+        // add item function
+        const addItemButton = document.querySelector("#addItem")
+        addItemButton.addEventListener("click", function () {
+            const itemNameInput = document.querySelector('#itemName')
+            const itemName = itemNameInput.value
 
-    const itemTypeSelect = document.querySelectorAll('.itemType')
-    const itemType = itemTypeSelect.value
+            const itemTypeSelect = document.querySelectorAll('.itemType')
+            const itemType = itemTypeSelect.value
 
-    const itemQtySelect = document.querySelector('#itemQty')
-    const itemQty = itemQtySelect.value
+            const itemQtySelect = document.querySelector('#itemQty')
+            const itemQty = itemQtySelect.value
 
-    if (itemName) {
-        addToPackingList(packingList, itemName, itemType, itemQty);
-        renderPackingItems(packingList)
-        itemNameInput.value = '';
-    }
-})
+            if (itemName) {
+                addToPackingList(packingList, itemName, itemType, itemQty);
+                renderPackingItems(packingList)
+                itemNameInput.value = '';
+            }
+        })
 
         // Sample data
         addToPackingList(packingList, "shirt", "t-shirt", 2)
@@ -50,17 +50,23 @@ addItemButton.addEventListener("click", function(){
             displayPackingList.appendChild(newDiv)
 
             //select the edit button which we just created
-            newDiv.querySelector(".edit-btn").addEventListener("click", function(){
+            newDiv.querySelector(".edit-btn").addEventListener("click", function () {
                 const newName = prompt(`Enter the new item to replace ${each.item}: `, each.name)
                 const newItemType = prompt("What type of item is it: ", each.itemType)
                 const newQty = prompt("Enter the new item: ", each.qty)
-                modifyPackingListItem(packingList,each.id, newName, newItemType, newQty)
+                modifyPackingListItem(packingList, each.id, newName, newItemType, newQty)
                 renderPackingItems(packingList)
-        
-        })
+            })
+            newDiv.querySelector(".delete-btn").addEventListener("click", function () {
+                const confirmation = confirm(`Do you want to delete this item: ${each.name}?`)
+                if (confirmation) {
+                    deleteListItem(packingList, each.id)
+                    renderPackingItems(packingList)
+                }
+            })
         }
     }
- 
+
 
     //  Call main function
     main()
