@@ -50,6 +50,7 @@ function packingListTotal (packingList) {
   return packingList.length
 }
 
+/*
 // Test Code
 addToPackingList(packingList, "shirt", "t-shirt", 2)
 addToPackingList(packingList, "black-shorts", "shorts", 2)
