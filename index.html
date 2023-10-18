@@ -14,19 +14,63 @@
 </head>
 
 <body>
-  <div class="container mt-5">
+  <div class="container border-dark mt-5">
     <div>Countdown to ${userPromptCountry}</div>
     <h1 class="bg-danger text-white p-3 rounded-top">Personal Packing list</h1>
     <p class="lead">Travelling soon? Why not use this packing list?</p>
-    <h3>My personal packing list</h3>
-    <div class="list-group border">
-      <ul id="displayPackingList" class="list-group">
+    <div>
+      <div class="mb-3 d-flex">
+        <input type="text" id="itemName" class="form-control" placeholder="Enter a New Item">
+      </div>
+      <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input itemType" type="radio" name="itemType">
+        <label class="form-check-label" for="itemName" value="hat">Hat</label>
+      </div>
+      <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input itemType" type="radio" name="itemType">
+        <label class="form-check-label" for="itemName" value="top">Top</label>
+      </div>
+      <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input itemType" type="radio" name="itemType">
+        <label class="form-check-label" for="itemName" value="shorts">Shorts</label>
+      </div>
+      <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input itemType" type="radio" name="itemType">
+        <label class="form-check-label" for="itemName" value="socks">Socks</label>
+      </div>
+      <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input itemType" type="radio" name="itemType">
+        <label class="form-check-label" for="itemName" value="shoes">Shoes</label>
+      </div>
+      <div class=" form-check form-check-inline mb-3">
+        <input class="form-check-input itemType" type="radio" name="itemType">
+        <label class="form-check-label" for="itemName" value="tolietries">Tolietries</label>
+      </div>
+      </input>
+      <div>
+        <select id="itemQty" class="custom-select custom-select-lg mb-3">
+          <option selected>How many of this item would you like to bring?</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+          <option value="4">Four</option>
+          <option value="5">Five</option>
+          <option value="6">Six</option>
+          <option value="7">Seven</option>
+          <option value="8">Eight</option>
+        </select>
 
-      </ul>
-      <!-- Add individual list item here -->
- 
- 
-      <!--
+      </div>
+      <button id="addItem" class="btn btn-primary mb-3">Add item</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>My personal packing list</h3>
+    <div id="displayPackingList" class="list-group border">
+
+      <!-- Add individual list item here
+      Dummy HTML For reference
       <div class="d-flex flex-wrap align-items-center p-2 border border-dark">
         <div class="ps-1" id="count">1</div>
         <label class="list-group-item border-0 me-auto">
@@ -36,36 +80,19 @@
         <div class="p-1"><button type="button" class="btn btn-primary btn-sm">Edit</button></div>
         <div class="p-1"><button type="button" class="btn btn-danger btn-sm">Delete</button></div>
       </div>
-      <div class="d-flex flex-wrap align-items-center p-2 border border-dark border-bottom-0 border-top-0">
-        <div class="ps-1" id="count">2</div>
-        <label class="list-group-item border-0 me-auto">
-          <input class="form-check-input me-1 p-2 " type="checkbox" value="">
-          Fake example item version 2</label>
-          <div class="p-1"><button type="button" class="btn btn-success btn-sm">2</button></div>
-        <div class="p-1"><button type="button" class="btn btn-primary btn-sm">Edit</button></div>
-        <div class="p-1"><button type="button" class="btn btn-danger btn-sm">Delete</button></div>
-      </div>
-      <div class="d-flex flex-wrap align-items-center p-2 border border-dark">
-        <div class="ps-1" id="count">3</div>
-        <label class="list-group-item border-0 me-auto">
-          <input class="form-check-input me-1 p-2 " type="checkbox" value="">
-          Fake example item version 3</label>
-          <div class="p-1"><button type="button" class="btn btn-success btn-sm">1</button></div>
-        <div class="p-1"><button type="button" class="btn btn-primary btn-sm">Edit</button></div>
-        <div class="p-1"><button type="button" class="btn btn-danger btn-sm">Delete</button></div>
-      </div>
      -->
     </div>
+  </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-      crossorigin="anonymous"></script>
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
   </div>
 </body>
 
