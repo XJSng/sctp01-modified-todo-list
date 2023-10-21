@@ -15,7 +15,9 @@
 
 <body>
   <div class="container border-dark mt-5">
-    <div>Countdown to ${userPromptCountry}</div>
+    <div>
+      <p id="countdownDisplay">Countdown to ${countdownTimer}</p>
+    </div>
     <h1 class="bg-danger text-white p-3 rounded-top">Personal Packing list</h1>
     <p class="lead">Travelling soon? Why not use this packing list?</p>
     <div>
@@ -81,7 +83,9 @@
         <div class="p-1"><button type="button" class="btn btn-danger btn-sm">Delete</button></div>
       </div>
      -->
+
     </div>
+    <button id="save-btn" class="btn btn-primary mt-3">Save</button>
   </div>
 
 
@@ -91,8 +95,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"></script>
+  <!-- adding axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="data.js"></script>
   <script src="script.js"></script>
+
   </div>
 </body>
 

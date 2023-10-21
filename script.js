@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    function main() {
-        let packingList = []
-
+    async function main() {
+        // Ask User for travel location and date of travel
+        // Return date to travel and travel location in index
+        let packingList = await loadClothes()
+        renderPackingItems(packingList)
+        
         // add item function
         const addItemButton = document.querySelector("#addItem")
         addItemButton.addEventListener("click", function () {
@@ -20,8 +23,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 itemNameInput.value = '';
             }
         })
+        // Save button function to database
+        const saveButton = document.querySelector("#save-btn")
+        saveButton.addEventListener("click", async function() {
+            await saveClothes(packingList);
+            alert("Packing list has been saved")
+        } )
 
         // Sample data
+        /*
         addToPackingList(packingList, "shirt", "t-shirt", 2)
         addToPackingList(packingList, "black-shorts", "shorts", 2)
         addToPackingList(packingList, "socks", "socks", 3)
@@ -29,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         modifyPackingListItem(packingList, packingList[2].id, "shirt", "t-shirt", 1)
         console.log(packingList)
         renderPackingItems(packingList)
+        */
     }
 
     // renderPackingItems function
@@ -43,13 +54,13 @@ document.addEventListener("DOMContentLoaded", function () {
             <label class="list-group-item border-0 me-auto">
               <input class="form-check-input me-1 p-2 " type="checkbox" value="">
               ${each.name}</label>
-              <div class="p-1"><button type="button" class="btn btn-success btn-sm">${each.qty}</button></div>
+              <div class="p-1"><button type="button" class="btn btn-success btn-sm count-btn">${each.qty}</button></div>
             <div class="p-1"><button type="button" class="btn btn-primary btn-sm edit-btn">Edit</button></div>
             <div class="p-1"><button type="button" class="btn btn-danger btn-sm delete-btn">Delete</button></div>`
             count++
             displayPackingList.appendChild(newDiv)
 
-            //select the edit button which we just created
+            // Edit array button
             newDiv.querySelector(".edit-btn").addEventListener("click", function () {
                 const newName = prompt(`Enter the new item to replace ${each.item}: `, each.name)
                 const newItemType = prompt("What type of item is it: ", each.itemType)
@@ -57,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 modifyPackingListItem(packingList, each.id, newName, newItemType, newQty)
                 renderPackingItems(packingList)
             })
+            // Delete item buttton
             newDiv.querySelector(".delete-btn").addEventListener("click", function () {
                 const confirmation = confirm(`Do you want to delete this item: ${each.name}?`)
                 if (confirmation) {
@@ -64,6 +76,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     renderPackingItems(packingList)
                 }
             })
+            // Add count button TESTING REQUIRED
+            
+            newDiv.querySelector(".count-btn").addEventListener("click", function() {
+                qtyIncreaseOnly(packingList, newQty)
+                renderPackingItems(packingList)
+            })
+            
         }
     }
 
