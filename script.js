@@ -1,10 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const travelLocation = prompt("Please enter your travel destination: ")
+    //let travelDate = prompt("Please enter your travel date (DDMMYYYY): ")
+   document.querySelector("#countdownDisplay")
+    function addCountdown(travelLocation) {
+        //function that will calculate time left to travel date
+        const date = new Date()
+        let day = date.getDate()
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        let currentDate = `${day}${month}${year}`
+       // Take the remaining Dates minus the currentDate
+       // let remainingDate = currentDate
+        // append div to header div
+        const timeDiv = document.createElement("div")
+        timeDiv.innerHTML = `${currentDate} to ${travelLocation}`
+        countdownDisplay.appendChild(timeDiv)
+    }
+    // Call the add countdown function
+    addCountdown(travelLocation)
+
     async function main() {
         // Ask User for travel location and date of travel
         // Return date to travel and travel location in index
         let packingList = await loadClothes()
         renderPackingItems(packingList)
-        
+
         // add item function
         const addItemButton = document.querySelector("#addItem")
         addItemButton.addEventListener("click", function () {
@@ -25,10 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         // Save button function to database
         const saveButton = document.querySelector("#save-btn")
-        saveButton.addEventListener("click", async function() {
+        saveButton.addEventListener("click", async function () {
             await saveClothes(packingList);
             alert("Packing list has been saved")
-        } )
+        })
 
         // Sample data
         /*
@@ -77,12 +97,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             })
             // Add count button TESTING REQUIRED
-            
-            newDiv.querySelector(".count-btn").addEventListener("click", function() {
+
+            newDiv.querySelector(".count-btn").addEventListener("click", function () {
                 qtyIncreaseOnly(packingList, newQty)
                 renderPackingItems(packingList)
             })
-            
+
         }
     }
 
