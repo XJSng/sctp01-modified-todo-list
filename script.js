@@ -1,23 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const travelLocation = prompt("Please enter your travel destination: ")
-    //let travelDate = prompt("Please enter your travel date (DDMMYYYY): ")
-   document.querySelector("#countdownDisplay")
-    function addCountdown(travelLocation) {
-        //function that will calculate time left to travel date
-        const date = new Date()
-        let day = date.getDate()
-        let month = date.getMonth() + 1;
-        let year = date.getFullYear();
-        let currentDate = `${day}${month}${year}`
-       // Take the remaining Dates minus the currentDate
-       // let remainingDate = currentDate
-        // append div to header div
-        const timeDiv = document.createElement("div")
-        timeDiv.innerHTML = `${currentDate} to ${travelLocation}`
-        countdownDisplay.appendChild(timeDiv)
-    }
-    // Call the add countdown function
-    addCountdown(travelLocation)
+    // Create the form overlay
+    const formOverlay = document.querySelector('#form-overlay')
+    const form = document.querySelector("#data-form")
+    // hide the form
+    formOverlay.style.display = "block"
+    form.addEventListener("submit", function (e) {
+        e.preventDefault()
+        const dateInput = document.querySelector("#date-input").value
+        const locationInput = document.querySelector("#location-input").value
+        // hide the form after it is submitted
+        formOverlay.style.display = "none"
+        // Using the form input create a countdown timer
+        const countdownDisplay = document.querySelector("#countdownDisplay")
+        function addCountdown(locationInput, dateInput) {
+            //function that will calculate time left to travel date
+            // const date = new Date()
+            // let day = date.getDate()
+            // let month = date.getMonth() + 1;
+            // let year = date.getFullYear();
+            // let currentDate = [year,month,day]
+            //Because dateInput is a string, we need to make it an array
+
+
+            // Take the remaining Dates minus the currentDate
+            //let remainingDate = dateInput - currentDate
+            // append div to header div
+            const timeDiv = document.createElement("div")
+            timeDiv.innerHTML = `Going to ${locationInput} on ${dateInput}`
+            countdownDisplay.appendChild(timeDiv)
+        }
+        // Call the add countdown function
+        addCountdown(locationInput, dateInput)
+    })
 
     async function main() {
         // Ask User for travel location and date of travel
@@ -73,12 +87,13 @@ document.addEventListener("DOMContentLoaded", function () {
             newDiv.innerHTML = `<div class="ps-1" id="count">${count}</div>
             <label class="list-group-item border-0 me-auto">
               <input class="form-check-input me-1 p-2 " type="checkbox" value="">
-              ${each.name}</label>
-              <div class="p-1"><button type="button" class="btn btn-success btn-sm count-btn">${each.qty}</button></div>
+              x${each.qty} - ${each.name}</label>
             <div class="p-1"><button type="button" class="btn btn-primary btn-sm edit-btn">Edit</button></div>
             <div class="p-1"><button type="button" class="btn btn-danger btn-sm delete-btn">Delete</button></div>`
             count++
             displayPackingList.appendChild(newDiv)
+            // Add button
+            // <div class="p-1"><button type="button" class="btn btn-success btn-sm count-btn">${each.qty}</button></div>
 
             // Edit array button
             newDiv.querySelector(".edit-btn").addEventListener("click", function () {
@@ -96,12 +111,19 @@ document.addEventListener("DOMContentLoaded", function () {
                     renderPackingItems(packingList)
                 }
             })
+            // Checkbox is backed
+            let checkbox = newDiv.querySelector(".form-check-input")
+            if (checkbox.checked) {
+                // 
+                alert("you checked this box")
+//                newDiv.id.add("flexCheckDisabled")
+            }
             // Add count button TESTING REQUIRED
 
-            newDiv.querySelector(".count-btn").addEventListener("click", function () {
-                qtyIncreaseOnly(packingList, newQty)
-                renderPackingItems(packingList)
-            })
+            // newDiv.querySelector(".count-btn").addEventListener("click", function () {
+            //     qtyIncreaseOnly(packingList)
+            //     renderPackingItems(packingList)
+            // })
 
         }
     }

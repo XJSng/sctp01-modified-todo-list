@@ -14,7 +14,21 @@
 </head>
 
 <body>
+  <!-- Hidden form overlay -->
+  <div class="container" id="form-overlay">
+    <h1>Where are you going?</h1>
+    <div id="form-container">  
+        <form id="data-form">
+          <label for="date-input">Enter Date:</label>
+          <input type="date" id="date-input" name="date">
+          <label for="text">Enter your travel location:</label>
+          <input type="text" id="location-input" name="location">
+          <button type="submit">Submit</button>
+        </form>
+    </div>
+  </div>
   <div class="container border-dark mt-5">
+
     <div id="countdownDisplay">
     </div>
     <h1 class="bg-danger text-white p-3 rounded-top">Personal Packing list</h1>

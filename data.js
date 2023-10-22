@@ -75,9 +75,9 @@ function packingListTotal(packingList) {
   return packingList.length
 }
 // TEST TO MAKE SURE THIS WORKS
-function qtyIncreaseOnly(packingList, newQty) {
-  return ++packingList[newQty]
-}
+// function qtyIncreaseOnly(packingList) {
+//   return packingList[3]+1
+// }
 
 
 /*
