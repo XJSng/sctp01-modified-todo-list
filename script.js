@@ -1,23 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const travelLocation = prompt("Please enter your travel destination: ")
-    //let travelDate = prompt("Please enter your travel date (DDMMYYYY): ")
-   document.querySelector("#countdownDisplay")
-    function addCountdown(travelLocation) {
-        //function that will calculate time left to travel date
-        const date = new Date()
-        let day = date.getDate()
-        let month = date.getMonth() + 1;
-        let year = date.getFullYear();
-        let currentDate = `${day}${month}${year}`
-       // Take the remaining Dates minus the currentDate
-       // let remainingDate = currentDate
-        // append div to header div
-        const timeDiv = document.createElement("div")
-        timeDiv.innerHTML = `${currentDate} to ${travelLocation}`
-        countdownDisplay.appendChild(timeDiv)
-    }
-    // Call the add countdown function
-    addCountdown(travelLocation)
+    // Create the form overlay
+    const formOverlay = document.querySelector('#form-overlay')
+    const form = document.querySelector("#data-form")
+    // hide the form
+    formOverlay.style.display = "block"
+    form.addEventListener("submit", function (e) {
+        e.preventDefault()
+        const dateInput = document.querySelector("#date-input").value
+        const locationInput = document.querySelector("#location-input").value
+        // hide the form after it is submitted
+        formOverlay.style.display = "none"
+        // Using the form input create a countdown timer
+        const countdownDisplay = document.querySelector("#countdownDisplay")
+        function addCountdown(locationInput, dateInput) {
+            //function that will calculate time left to travel date
+            // const date = new Date()
+            // let day = date.getDate()
+            // let month = date.getMonth() + 1;
+            // let year = date.getFullYear();
+            // let currentDate = [year,month,day]
+            //Because dateInput is a string, we need to make it an array
+
+
+            // Take the remaining Dates minus the currentDate
+            //let remainingDate = dateInput - currentDate
+            // append div to header div
+            const timeDiv = document.createElement("div")
+            timeDiv.innerHTML = `Going to ${locationInput} on ${dateInput}`
+            countdownDisplay.appendChild(timeDiv)
+        }
+        // Call the add countdown function
+        addCountdown(locationInput, dateInput)
+    })
 
     async function main() {
         // Ask User for travel location and date of travel
